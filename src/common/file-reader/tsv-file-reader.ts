@@ -2,9 +2,9 @@ import { readFileSync } from 'fs';
 import { FileReaderInterface } from './file-reader.interface.js';
 import { Offer } from '../../type/offer.js';
 import { CityType } from '../../type/city-type.enam.js';
-import { getHost } from '../../utils/getHost.js';
-import { getCoordinates } from '../../utils/getCoordinates.js';
-import { getHouseType } from '../../utils/getHousetype.js';
+import { getHost } from '../../utils/utils.js';
+import { getCoordinates } from '../../utils/utils.js';
+import { getHouseType } from '../../utils/utils.js';
 
 export default class TSVFileReader implements FileReaderInterface {
   private rawData = '';
