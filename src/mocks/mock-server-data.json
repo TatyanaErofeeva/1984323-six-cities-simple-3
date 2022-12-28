@@ -1,0 +1,102 @@
+{
+    "api": {
+        "titles": [
+            "You Can Afford To Dwell Well",
+            "A Higher Quality of Living",
+            "Apartments Tailored to Your Highest Standards",
+            "At Last, This Is What You’ve Been Searching For",
+            "Everything You Need. All Right Here"
+        ],
+        "descriptions": [
+            "Experience the [Apartment Name] Lifestyle",
+            "Landmark Living on The Avenue",
+            "Luxury All Around",
+            "Luxury is Built-In. Not Tacked On",
+            "Luxury, Location, and Convenience"
+        ],
+        "previewImages": [
+            "https://picsum.photos/200/300",
+            "https://picsum.photos/200/300",
+            "https://picsum.photos/200/300",
+            "https://picsum.photos/200/300",
+            "https://picsum.photos/200/300"
+        ],
+        "images": [
+            "https://picsum.photos/200/300",
+            "https://picsum.photos/200/300",
+            "https://picsum.photos/200/300",
+            "https://picsum.photos/200/300",
+            "https://picsum.photos/200/300"
+        ],
+        "types": [
+            "apartment",
+            "house",
+            "room",
+            "hotel"
+        ],
+        "hosts": [
+            "Петр",
+            "Иван",
+            "Иван",
+            "Иннокентий",
+            "Джулия",
+            "Джордж",
+            "Ричард",
+            "Иннокентий",
+            "Рокки",
+            "Джон"
+        ],
+        "emails": [
+            "snow@pisem.local",
+            "president@dka.local",
+            "fish@big.local",
+            "test@pisem.local",
+            "freedom@pisem.local",
+            "rolan@pochta.local",
+            "author@mir.local",
+            "test@lost.loca",
+            "kujo-fan@story.local"
+        ],
+        "avatarURLs": [
+            "user.jpg",
+            "photo.jpg",
+            "awesome-avatar.jpg",
+            "roland.jpg",
+            "smit.jpg",
+            "coffee.jpg"
+        ],
+        "goods": [
+            "Breakfast",
+            "Air conditioning",
+            "Laptop friendly workspace",
+            "Baby seat",
+            "Washer"
+        ],
+        "locations": [
+            [
+                48.85661,
+                2.351499
+            ],
+            [
+                50.938361,
+                6.959974
+            ],
+            [
+                50.846557,
+                4.351697
+            ],
+            [
+                52.370216,
+                4.895168
+            ],
+            [
+                53.550341,
+                10.000654
+            ],
+            [
+                51.225402,
+                6.776314
+            ]
+        ]
+    }
+}
