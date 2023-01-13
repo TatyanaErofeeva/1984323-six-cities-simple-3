@@ -1,4 +1,4 @@
-import { Coordinates } from './offer.js';
+//import { Coordinates } from './offer.js';
 
 export type MockData = {
     titles: string[];
@@ -9,5 +9,4 @@ export type MockData = {
     emails: string[];
     avatarURLs: string[];
     goods: string[];
-    locations: Coordinates[];
 };

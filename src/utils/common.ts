@@ -1,14 +1,15 @@
 import { Offer } from '../type/offer.js';
 import { CityType } from '../type/city-type.enam.js';
-import { getHost } from './utils.js';
-import { getCoordinates } from './utils.js';
+//import { getCoordinates } from './utils.js';
 import { getHouseType } from './utils.js';
+import crypto from 'crypto';
 
 
 export const createOffer = (row: string) => {
   const tokens = row.replace('\n', '').split('\t');
   const [title, description, date, city, previewImage, images, isPremium, rating, type, bedrooms,
-    maxAdults, price, goods, isPro, commentsAmount, location] = tokens;
+    maxAdults, price, goods, hostName, email, avatarUrl, isPro, commentsAmount, latitude,
+    longitude] = tokens;
   return {
     title,
     description,
@@ -23,12 +24,23 @@ export const createOffer = (row: string) => {
     maxAdults: Number(maxAdults),
     price: Number(price),
     goods: goods.split(','),
-    host: getHost(isPro),
+    host: {
+      hostName,
+      email,
+      avatarUrl,
+      isPro: Boolean(isPro)
+    },
     commentsAmount: Number(commentsAmount),
-    location: getCoordinates(location)
+    latitude: Number.parseFloat(latitude),
+    longitude: Number.parseFloat(longitude),
   } as Offer;
 };
 
 export const getErrorMessage = (error: unknown): string =>
   error instanceof Error ? error.message : '';
+
+export const createSHA256 = (line: string, salt: string): string => {
+  const shaHasher = crypto.createHmac('sha256', salt);
+  return shaHasher.update(line).digest('hex');
+};
 

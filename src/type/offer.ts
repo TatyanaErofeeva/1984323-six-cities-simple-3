@@ -1,19 +1,13 @@
 import { HouseType } from './house-type.enum';
 import { CityType } from './city-type.enam';
 
-export enum HostType {
-  Usual = 'обычный',
-  Pro = 'pro',
-}
-
-export type Coordinates = [number, number];
+//export type Coordinates = [number, number];
 
 export type Host = {
   hostName: string;
   email: string;
   avatarUrl: string;
-  password: string;
-  isPro: HostType;
+  isPro: boolean;
   }
 
 export type Offer = {
@@ -32,7 +26,8 @@ export type Offer = {
   goods: string[];
   host: Host;
   commentsAmount: number;
-  location: Coordinates;
+  latitude: number,
+  longitude: number,
 }
 
 export type Offers = Offer[];
