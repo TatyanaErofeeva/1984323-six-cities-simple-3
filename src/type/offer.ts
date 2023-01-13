@@ -1,8 +1,6 @@
 import { HouseType } from './house-type.enum';
 import { CityType } from './city-type.enam';
 
-//export type Coordinates = [number, number];
-
 export type Host = {
   hostName: string;
   email: string;

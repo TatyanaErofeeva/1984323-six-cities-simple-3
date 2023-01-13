@@ -1,5 +1,3 @@
-//import { Coordinates } from './offer.js';
-
 export type MockData = {
     titles: string[];
     descriptions: string[];

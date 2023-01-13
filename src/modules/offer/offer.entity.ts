@@ -1,7 +1,6 @@
 import typegoose, { getModelForClass, defaultClasses, Ref } from '@typegoose/typegoose';
 import { CityType } from '../../type/city-type.enam.js';
 import { HouseType } from '../../type/house-type.enum.js';
-//import { Coordinates } from '../../type/offer.js';
 import { UserEntity } from '../user/user.entity.js';
 
 const { prop, modelOptions } = typegoose;
@@ -66,27 +65,20 @@ export class OfferEntity extends defaultClasses.TimeStamps {
     @prop({ required: true, default: '' })
     public goods!: string[];
 
-    @prop({
-      ref: UserEntity,
-      required: true,
-      default: ''
-    })
-    public host!: Ref<UserEntity>;
-
     @prop({ required: true, default: 0 })
     public commentsAmount!: number;
 
-  @prop()
+    @prop()
     public latitude!: number;
 
-  @prop()
-  public longitude!: number;
+    @prop()
+    public longitude!: number;
 
-  @prop({
-    ref: UserEntity,
-    required: true
-  })
-  public userId!: Ref<UserEntity>;
+    @prop({
+      ref: UserEntity,
+      required: true
+    })
+    public userId!: Ref<UserEntity>;
 }
 
 export const OfferModel = getModelForClass(OfferEntity);

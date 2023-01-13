@@ -1,7 +1,6 @@
 import { CityType } from '../../../type/city-type.enam.js';
 import { HouseType } from '../../../type/house-type.enum.js';
 import { Host } from '../../../type/offer.js';
-//import { Coordinates } from '../../../type/offer.js';
 
 export default class CreateOfferDto {
   public title!: string;

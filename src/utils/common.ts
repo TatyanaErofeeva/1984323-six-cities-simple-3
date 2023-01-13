@@ -1,6 +1,5 @@
 import { Offer } from '../type/offer.js';
 import { CityType } from '../type/city-type.enam.js';
-//import { getCoordinates } from './utils.js';
 import { getHouseType } from './utils.js';
 import crypto from 'crypto';
 
