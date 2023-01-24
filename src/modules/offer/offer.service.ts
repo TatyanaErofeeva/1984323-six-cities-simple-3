@@ -30,6 +30,7 @@ export default class OfferService implements OfferServiceInterface {
       .exec();
   }
 
+
   public async find(): Promise<DocumentType<OfferEntity>[]> {
     return this.OfferModel
       .aggregate([
