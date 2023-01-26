@@ -24,8 +24,10 @@ export type Offer = {
   goods: string[];
   host: Host;
   commentsAmount: number;
-  latitude: number,
-  longitude: number,
+  coordinates:{
+    latitude: number,
+    longitude: number
+  }
 }
 
 export type Offers = Offer[];

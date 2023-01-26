@@ -1,3 +1,5 @@
+import { Coordinate } from './coordinates.type.js';
+
 export type MockData = {
     titles: string[];
     descriptions: string[];
@@ -7,4 +9,5 @@ export type MockData = {
     emails: string[];
     avatarURLs: string[];
     goods: string[];
+    coordinates: Coordinate[];
 };

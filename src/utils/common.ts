@@ -9,8 +9,7 @@ import { ClassConstructor } from 'class-transformer/types/interfaces/class-const
 export const createOffer = (row: string) => {
   const tokens = row.replace('\n', '').split('\t');
   const [title, description, date, city, previewImage, images, isPremium, rating, type, bedrooms,
-    maxAdults, price, goods, hostName, email, avatarUrl, isPro, commentsAmount, latitude,
-    longitude] = tokens;
+    maxAdults, price, goods, hostName, email, avatarUrl, isPro, commentsAmount, coordinates] = tokens;
   return {
     title,
     description,
@@ -32,8 +31,7 @@ export const createOffer = (row: string) => {
       isPro: Boolean(isPro)
     },
     commentsAmount: Number(commentsAmount),
-    latitude: Number.parseFloat(latitude),
-    longitude: Number.parseFloat(longitude),
+    coordinates: JSON.parse(coordinates)
   } as Offer;
 };
 

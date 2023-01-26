@@ -7,6 +7,7 @@ import { Component } from '../../type/component.type.js';
 import CreateOfferDto from './dto/create-offer.dto.js';
 import UpdateOfferDto from './dto/update-offer.dto.js';
 import { SortType } from '../../type/sort-type.enum.js';
+import { DEFAULT_OFFER_COUNT } from './offer.constant.js';
 
 @injectable()
 export default class OfferService implements OfferServiceInterface {
@@ -21,6 +22,11 @@ export default class OfferService implements OfferServiceInterface {
     this.logger.info(`New offer created: ${dto.title}`);
 
     return result;
+  }
+
+  public async exists(documentId: string): Promise<boolean> {
+    return (await this.OfferModel
+      .exists({ _id: documentId })) !== null;
   }
 
   public async findById(OfferId: string): Promise<DocumentType<OfferEntity> | null> {
@@ -52,6 +58,7 @@ export default class OfferService implements OfferServiceInterface {
             countComment: { $size: '$comments' }
           }
         },
+        { $limit: DEFAULT_OFFER_COUNT },
         { $unset: 'comments' },
         { $sort: { countComment: SortType.Down } }
       ]).exec();

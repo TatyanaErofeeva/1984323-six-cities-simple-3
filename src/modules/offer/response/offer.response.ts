@@ -1,8 +1,12 @@
-import { Expose } from 'class-transformer';
 import { CityType } from '../../../type/city-type.enam.js';
 import { HouseType } from '../../../type/house-type.enum.js';
+import UserResponse from '../../user/response/user.response.js';
+import { Expose, Type } from 'class-transformer';
 
 export default class OfferResponse {
+  @Expose()
+  public id!: string;
+
   @Expose()
     title!: string;
 
@@ -42,15 +46,10 @@ export default class OfferResponse {
   @Expose()
     goods!: string[];
 
-  @Expose()
-    userId!: string;
+  @Expose({ name: 'userId' })
+  @Type(() => UserResponse)
+  public user!: UserResponse;
 
   @Expose()
     commentsAmount!: number;
-
-  @Expose()
-    latitude!: number;
-
-  @Expose()
-    longitude!: number;
 }

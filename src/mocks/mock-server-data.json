@@ -71,6 +71,28 @@
             "Laptop friendly workspace",
             "Baby seat",
             "Washer"
+        ],
+        "coordinates": [
+            {
+                "latitude": 7.219709,
+                "longitude": -15.539909
+            },
+            {
+                "latitude": -39.962478,
+                "longitude": -142.167510
+            },
+            {
+                "latitude": 16.294375,
+                "longitude": -47.017964
+            },
+            {
+                "latitude": -26.650122,
+                "longitude": -19.426231
+            },
+            {
+                "latitude": 75.072976,
+                "longitude": -79.523639
+            }
         ]
     }
 }

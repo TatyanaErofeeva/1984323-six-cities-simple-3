@@ -4,6 +4,7 @@ import { HouseType } from '../../type/house-type.enum.js';
 import { generateRandomValue, getRandomItems, getRandomItem, getRandomBoolean} from '../../utils/utils.js';
 import { OfferGeneratorInterface } from './offer-generator.interface.js';
 import { CityType } from '../../type/city-type.enam.js';
+import { Coordinate } from '../../type/coordinates.type.js';
 
 export default class OfferGenerator implements OfferGeneratorInterface {
   constructor(private readonly mockData: MockData) { }
@@ -27,14 +28,13 @@ export default class OfferGenerator implements OfferGeneratorInterface {
     const email = getRandomItem<string>(this.mockData.emails);
     const avatarURL = getRandomItem<string>(this.mockData.avatarURLs);
     const isPro = getRandomBoolean();
-    const latitude = generateRandomValue(0, 90, 6);
-    const longitude = generateRandomValue(0, 180, 6);
+    const coordinates = JSON.stringify(getRandomItem<Coordinate>(this.mockData.coordinates));
 
     return [
       title, description, date, city,
       previewImage, images, isPremium, rating,
       type, bedrooms, maxAdults, price,
-      goods, hostName, email, avatarURL, isPro, commentsAmount, latitude, longitude
+      goods, hostName, email, avatarURL, isPro, commentsAmount, coordinates
     ].join('\t');
   }
 }
