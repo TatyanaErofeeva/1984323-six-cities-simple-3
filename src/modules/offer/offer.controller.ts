@@ -121,7 +121,6 @@ export default class OfferController extends Controller {
   ): Promise<void> {
     const { offerId } = params;
     const offer = await this.offerService.deleteById(offerId);
-    //await this.commentService.deleteByOfferId(offerId);
     this.noContent(res, offer);
   }
 

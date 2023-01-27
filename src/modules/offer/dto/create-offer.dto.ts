@@ -16,6 +16,7 @@ import {
 } from 'class-validator';
 
 export default class CreateOfferDto {
+
   @MinLength(10, { message: 'Minimum title length must be 10' })
   @MaxLength(100, { message: 'Maximum title length must be 100' })
   public title!: string;

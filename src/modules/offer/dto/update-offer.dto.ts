@@ -4,6 +4,7 @@ import { Coordinate } from '../../../type/coordinates.type.js';
 import { ArrayMaxSize, ArrayMinSize, IsArray, IsBoolean, IsDateString, IsEnum, IsInt, IsOptional, IsString, Length, Max, Min, ValidateNested } from 'class-validator';
 
 export default class UpdateOfferDto {
+
   @IsOptional()
   @Length(10, 100, { message: 'Title length must be between 10 and 100' })
   public title?: string;
@@ -13,7 +14,7 @@ export default class UpdateOfferDto {
   public description?: string;
 
   @IsOptional()
-  @IsDateString({}, { message: 'date must be valid ISO date' })
+  @IsDateString({}, { message: 'Date must be valid ISO date' })
   public date?: Date;
 
   @IsOptional()
@@ -25,12 +26,12 @@ export default class UpdateOfferDto {
 
   @IsOptional()
   @IsArray({ message: 'Images must be array' })
-  @ArrayMinSize(6, { message: 'Minimum must be 6 picture' })
-  @ArrayMaxSize(6, { message: 'Maximum must be 6 picture' })
+  @ArrayMinSize(6, { message: 'Minimum must be 6 pictures' })
+  @ArrayMaxSize(6, { message: 'Maximum must be 6 pictures' })
   public images?: string[];
 
   @IsOptional()
-  @IsBoolean({ message: 'Field isPremium must be a boolean' })
+  @IsBoolean({ message: 'Field isPremium must be a boolean type' })
   public isPremium?: boolean;
 
   @IsOptional()
@@ -43,13 +44,13 @@ export default class UpdateOfferDto {
   public type?: HouseType;
 
   @IsOptional()
-  @IsInt({ message: 'bedrooms must be integer' })
+  @IsInt({ message: 'Bedrooms must be integer type' })
   @Min(1, { message: 'Minimum bedrooms must be 1' })
   @Max(8, { message: 'Maximum bedrooms must be 8' })
   public bedrooms?: number;
 
   @IsOptional()
-  @IsInt({ message: 'maxAdults must be integer' })
+  @IsInt({ message: 'MaxAdults must be integer type' })
   @Min(1, { message: 'Minimum guests must be 1' })
   @Max(10, { message: 'Maximum guests must be 10' })
   public maxAdults?: number;
@@ -60,10 +61,10 @@ export default class UpdateOfferDto {
   public price?: number;
 
   @IsOptional()
-  @IsArray({ message: 'goods must be an array' })
+  @IsArray({ message: 'Goods must be an array' })
   public goods?: string[];
 
   @IsOptional()
-  @ValidateNested({ message: 'Coordinate must be specific format' })
-  public coordinate?: Coordinate;
+  @ValidateNested({ message: 'Coordinates must be specific format' })
+  public coordinates?: Coordinate;
 }

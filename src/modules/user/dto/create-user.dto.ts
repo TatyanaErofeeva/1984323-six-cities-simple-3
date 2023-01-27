@@ -1,8 +1,9 @@
 import { IsEmail, IsString, Length } from 'class-validator';
 
 export default class CreateUserDto {
-  @IsString({ message: 'Name is required' })
-  @Length(1, 15, { message: 'Name length must be between 1 and 15' })
+
+  @IsString({ message: 'HostName is required' })
+  @Length(1, 15, { message: 'HostName length must be between 1 and 15' })
   public hostName!: string;
 
   @IsEmail({}, { message: 'Email must be vallid address' })
