@@ -6,7 +6,6 @@ import {
   IsDateString,
   IsEnum,
   IsInt,
-  IsMongoId,
   Max,
   MaxLength,
   Min,
@@ -68,6 +67,5 @@ export default class CreateOfferDto {
   @ValidateNested({ message: 'Coordinate must be specific format' })
   public coordinates!:Coordinate;
 
-  @IsMongoId({ message: 'userId field must be valid an id' })
   public userId!: string;
 }

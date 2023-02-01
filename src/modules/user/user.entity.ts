@@ -51,6 +51,12 @@ export class UserEntity extends defaultClasses.TimeStamps implements Host {
 
   @prop({ required: true, default: false })
     public isPro!: boolean;
+
+  public verifyPassword(password: string, salt: string) {
+    const hashPassword = createSHA256(password, salt);
+    return hashPassword === this.password;
+  }
 }
+
 
 export const UserModel = getModelForClass(UserEntity);
