@@ -30,9 +30,6 @@ export default class CreateOfferDto {
   @IsEnum(CityType, { message: 'city must be Amsterdam / Paris / Cologne / Brussels / Hamburg / Dusseldorf' })
   public city!: CityType;
 
-  @MaxLength(256, { message: 'Too short for field «previewImage»' })
-  public previewImage!: string;
-
   @IsArray({ message: 'Field pictures must be an array' })
   public images!: string[];
 

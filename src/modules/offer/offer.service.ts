@@ -43,9 +43,9 @@ export default class OfferService implements OfferServiceInterface {
         {
           $lookup: {
             from: 'comments',
-            let: { commentsId: '$_id' },
+            let: { offerId: '$_id' },
             pipeline: [
-              { $match: { $expr: { $in: ['$$commentsId', '$countComment'] } } },
+              { $match: { $expr: { $eq: ['$offerId', '$$offerId'] } } },
               { $project: { _id: 1 } }
             ],
             as: 'comments'
@@ -53,14 +53,11 @@ export default class OfferService implements OfferServiceInterface {
         },
         {
           $addFields:
-          {
-            id: { $toString: '$_id' },
-            countComment: { $size: '$comments' }
-          }
+            { id: { $toString: '$_id' }, commentsCount: { $size: '$comments' } }
         },
-        { $limit: DEFAULT_OFFER_COUNT },
         { $unset: 'comments' },
-        { $sort: { countComment: SortType.Down } }
+        { $limit: DEFAULT_OFFER_COUNT },
+        { $sort: { offerCount: SortType.Down } }
       ]).exec();
   }
 

@@ -9,8 +9,6 @@ export default class CreateUserDto {
   @IsEmail({}, { message: 'Email must be vallid address' })
   public email!: string;
 
-  public avatarUrl!: string;
-
   @IsString({ message: 'Password is required' })
   @Length(6, 12, { message: 'Password length must be between 1 and 15' })
   public password!: string;

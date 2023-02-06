@@ -3,67 +3,6 @@ GET http://localhost:3123/api HTTP/1.1
 
 ###
 
-# Предложения
-## Получить список предложений
-
-GET http://localhost:4000/offers HTTP/1.1
-Content-Type: application/json
-
-###
-
-## Создать предложение
-
-POST http://localhost:4000/offers HTTP/1.1
-Content-Type: application/json
-
-{
-  "title": "Cozy room, beautiful place",
-  "description": "A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam",
-  "date": "2023-01-23T10:40:47.276Z",
-  "city": "Amsterdam",
-  "previewImage": "billy-summers.png",
-  "images": ["billy-summers.png", "billy-summers.png", "billy-summers.png","billy-summers.png","billy-summers.png","billy-summers.png"],
-  "isPremium": true,
-  "rating": 5,
-  "type": "apartment",
-  "bedrooms": 3,
-  "maxAdults": 5,
-  "price": 1000,
-  "goods": ["Breakfast", "Washer", "Fridge"],
-  "userId": "63d0dbbf6b016c04f7e9a2af",
-  "coordinates": {
-       "latitude": 7.219709,
-       "longtitude": -15.539909 
-    }
-}
-
-###
-
-## Предложение по идентификатору
-
-GET http://localhost:4000/offers/63d2407113c07a6662d1a447 HTTP/1.1
-
-###
-
-## Удаление предложения
-
-DELETE http://localhost:4000/offers/63d0e4787c27509ac0e37bf9 HTTP/1.1
-
-###
-
-## Обновление предложения
-
-PATCH http://localhost:4000/offers/63d2407113c07a6662d1a447 HTTP/1.1
-Content-Type: application/json
-
-{
-  "rating": 4,
-  "description": "Beautiful place",
-  "price": 11000
-}
-
-###
-
 # Пользователи
 ## Регистрация пользователя
 
@@ -72,8 +11,7 @@ Content-Type: application/json
 
 {
   "hostName": "Somebody",
-  "email": "something@overlook.net",
-  "avatarUrl": "torranceppt.png",
+  "email": "something@overlook1.net",
   "password": "secret",
   "isPro": "true"
 }
@@ -86,15 +24,96 @@ POST http://localhost:4000/users/login HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "something@overlook.net",
+  "email": "something@overlook1.net",
   "password": "secret"
 }
 
 ###
 
 ## Проверка токена пользователя
+
 GET http://localhost:4000/users/login HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNvbWV0aGluZ0BvdmVybG9vay5uZXQiLCJpZCI6IjYzZGEyNmIwZjQ1OTgzOTRkYjk0Yjk5ZSIsImlhdCI6MTY3NTI0MzM2NSwiZXhwIjoxNjc1NDE2MTY1fQ.Qm_BczXWM3ANEacaOu6PCMWa-3CsYGQg7rT_o1-Nnjc
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNvbWV0aGluZ0BvdmVybG9vazEubmV0IiwiaWQiOiI2M2UwYzg2NDI0ZGJkZTk5NzM2NWUyNjEiLCJpYXQiOjE2NzU2Nzc0NDcsImV4cCI6MTY3NTg1MDI0N30.ZvMozbTqY5QVi_DYBoXIGwEiuavpcp0Lln6pbb515AM
+
+###
+
+# Предложения
+
+## Получить список предложений
+
+GET http://localhost:4000/offers HTTP/1.1
+Content-Type: application/json
+
+###
+
+## Создать предложение
+
+POST http://localhost:4000/offers HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNvbWV0aGluZ0BvdmVybG9vazEubmV0IiwiaWQiOiI2M2UwYzg2NDI0ZGJkZTk5NzM2NWUyNjEiLCJpYXQiOjE2NzU2Nzc0NDcsImV4cCI6MTY3NTg1MDI0N30.ZvMozbTqY5QVi_DYBoXIGwEiuavpcp0Lln6pbb515AM
+
+{
+  "title": "Amazing place with beautifull view",
+  "description": "A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam",
+  "date": "2023-01-23T10:40:47.276Z",
+  "city": "Amsterdam",
+  "images": ["billy-summers.png", "billy-summers.png", "billy-summers.png","billy-summers.png","billy-summers.png","billy-summers.png"],
+  "isPremium": true,
+  "rating": 5,
+  "type": "apartment",
+  "bedrooms": 3,
+  "maxAdults": 5,
+  "price": 1000,
+  "goods": ["Breakfast", "Washer", "Fridge"],
+  "userId": "63e0c86424dbde997365e261",
+  "coordinates": {
+       "latitude": 7.219709,
+       "longtitude": -15.539909 
+    }
+}
+
+###
+
+## Предложение по идентификатору
+
+GET http://localhost:4000/offers/63e0b22b3e4ec8118937da2f HTTP/1.1
+
+###
+
+## Загрузка previewImage для объявления
+
+POST http://localhost:4000/offers/63e0d302e1c9237dfcc813fa/previewImage HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNvbWV0aGluZ0BvdmVybG9vazEubmV0IiwiaWQiOiI2M2UwYzg2NDI0ZGJkZTk5NzM2NWUyNjEiLCJpYXQiOjE2NzU2Nzc0NDcsImV4cCI6MTY3NTg1MDI0N30.ZvMozbTqY5QVi_DYBoXIGwEiuavpcp0Lln6pbb515AM
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="previewImage"; filename="apartment-01.jpg"
+Content-Type: previewImage/jpg
+
+< /markup/img/apartment-01.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+## Удаление предложения
+
+DELETE http://localhost:4000/offers/63e0b22b3e4ec8118937da2f HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNvbWV0aGluZ0BvdmVybG9vazEubmV0IiwiaWQiOiI2M2UwYzg2NDI0ZGJkZTk5NzM2NWUyNjEiLCJpYXQiOjE2NzU2Nzc0NDcsImV4cCI6MTY3NTg1MDI0N30.ZvMozbTqY5QVi_DYBoXIGwEiuavpcp0Lln6pbb515AM
+
+###
+
+## Обновление предложения
+
+PATCH http://localhost:4000/offers/63e0b22b3e4ec8118937da32 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNvbWV0aGluZ0BvdmVybG9vazEubmV0IiwiaWQiOiI2M2UwYzg2NDI0ZGJkZTk5NzM2NWUyNjEiLCJpYXQiOjE2NzU2Nzc0NDcsImV4cCI6MTY3NTg1MDI0N30.ZvMozbTqY5QVi_DYBoXIGwEiuavpcp0Lln6pbb515AM
+Content-Type: application/json
+
+{
+  "rating": 5,
+  "description": "Beautiful place",
+  "price": 11000
+}
+
 
 ###
 
@@ -104,11 +123,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNvbWV0aGluZ0BvdmVybG9va
 
 POST http://localhost:4000/comments HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNvbWV0aGluZ0BvdmVybG9vay5uZXQiLCJpZCI6IjYzZGEyNmIwZjQ1OTgzOTRkYjk0Yjk5ZSIsImlhdCI6MTY3NTI0MzM2NSwiZXhwIjoxNjc1NDE2MTY1fQ.Qm_BczXWM3ANEacaOu6PCMWa-3CsYGQg7rT_o1-Nnjc
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNvbWV0aGluZ0BvdmVybG9vay5uZXQiLCJpZCI6IjYzZTBiMjhmNTY5ZGU1YTczMDI1ZWZmYSIsImlhdCI6MTY3NTY3MDIxMywiZXhwIjoxNjc1ODQzMDEzfQ.iSCnV_SJ6AlB_5nGVZK4twHjzrQjp8sgOUbtS6lNILY
 
 {
-  "text": "Как обстоят дела с наличием мест?",
-  "offerId": "63da2609af8f7fa39bb0037a",
+  "text": "Что появилось нового?",
+  "offerId": "63e0e469abdd55f4b2b26e7f",
   "rating": 4
 }
 
@@ -116,19 +135,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNvbWV0aGluZ0BvdmVybG9va
 
 ## Список комментариев к объявлению
 
-GET http://localhost:4000/offers/63d2407113c07a6662d1a447/comments HTTP/1.1
+GET http://localhost:4000/offers/63e0b22b3e4ec8118937da32/comments HTTP/1.1
 
 ###
 
 ## Удаление комментария
 
-DELETE http://localhost:4000/offers/63d2407113c07a6662d1a447/comments HTTP/1.1
+DELETE http://localhost:4000/offers/63e0b35f569de5a73025f000/comments HTTP/1.1
 
 ###
 
 ## Отправка аватарки пользователю
 
-POST http://localhost:4000/users/63d0dbbf6b016c04f7e9a2af/avatar HTTP/1.1
+POST http://localhost:4000/users/63e0c86424dbde997365e261/avatar HTTP/1.1
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
