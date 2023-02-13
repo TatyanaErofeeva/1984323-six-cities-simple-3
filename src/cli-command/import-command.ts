@@ -19,9 +19,6 @@ const enum DefaultParams {
   UserPassword = '123456'
 }
 
-// const DEFAULT_DB_PORT = 27017;
-// const DEFAULT_USER_PASSWORD = '123456';
-
 export default class ImportCommand implements CliCommandInterface {
   public readonly name = '--import';
   private userService!: UserServiceInterface;

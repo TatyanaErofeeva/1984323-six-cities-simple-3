@@ -19,11 +19,11 @@ import {
 export default class UpdateOfferDto {
 
   @IsOptional()
-  @Length(MIN_TITLE_LENGTH, MAX_TITLE_LENGTH, { message: 'Title length must be between 10 and 100' })
+  @Length(MIN_TITLE_LENGTH, MAX_TITLE_LENGTH, { message: `Title length must be between ${MIN_TITLE_LENGTH} and ${MAX_TITLE_LENGTH}` })
   public title?: string;
 
   @IsOptional()
-  @Length(MIN_DESCRIPTION_LENGTH, MAX_DESCRIPTION_LENGTH, { message: 'Description length must be between 20 and 1024' })
+  @Length(MIN_DESCRIPTION_LENGTH, MAX_DESCRIPTION_LENGTH, { message: `Description length must be between ${MIN_DESCRIPTION_LENGTH} and ${MAX_DESCRIPTION_LENGTH}` })
   public description?: string;
 
   @IsOptional()
@@ -39,8 +39,8 @@ export default class UpdateOfferDto {
 
   @IsOptional()
   @IsArray({ message: 'Images must be array' })
-  @ArrayMinSize(PICTURES_QUANTITY, { message: 'Minimum must be 6 pictures' })
-  @ArrayMaxSize(PICTURES_QUANTITY, { message: 'Maximum must be 6 pictures' })
+  @ArrayMinSize(PICTURES_QUANTITY, { message: `Minimum must be ${PICTURES_QUANTITY} pictures` })
+  @ArrayMaxSize(PICTURES_QUANTITY, { message: `Maximum must be ${PICTURES_QUANTITY} pictures` })
   public images?: string[];
 
   @IsOptional()
@@ -48,8 +48,8 @@ export default class UpdateOfferDto {
   public isPremium?: boolean;
 
   @IsOptional()
-  @Min(MIN_RATING, { message: 'Minimum rating must be 1' })
-  @Max(MAX_RATING, { message: 'Maximum rating must be 5' })
+  @Min(MIN_RATING, { message: `Minimum rating must be ${MIN_RATING}` })
+  @Max(MAX_RATING, { message: `Maximum rating must be ${MAX_RATING}` })
   public rating?: number;
 
   @IsOptional()
@@ -58,19 +58,19 @@ export default class UpdateOfferDto {
 
   @IsOptional()
   @IsInt({ message: 'Bedrooms must be integer type' })
-  @Min(MIN_BEDROOMS, { message: 'Minimum bedrooms must be 1' })
-  @Max(MAX_BEDROOMS, { message: 'Maximum bedrooms must be 8' })
+  @Min(MIN_BEDROOMS, { message: `Minimum bedrooms must be ${MIN_BEDROOMS}` })
+  @Max(MAX_BEDROOMS, { message: `Maximum bedrooms must be ${MAX_BEDROOMS}` })
   public bedrooms?: number;
 
   @IsOptional()
   @IsInt({ message: 'MaxAdults must be integer type' })
-  @Min(MIN_GUESTS, { message: 'Minimum guests must be 1' })
-  @Max(MAX_GUESTS, { message: 'Maximum guests must be 10' })
+  @Min(MIN_GUESTS, { message: `Minimum guests must be ${MIN_GUESTS}` })
+  @Max(MAX_GUESTS, { message: `Maximum guests must be ${MAX_GUESTS}` })
   public maxAdults?: number;
 
   @IsOptional()
-  @Min(MIN_PRICE, { message: 'Minimum price must be 100' })
-  @Max(MAX_PRICE, { message: 'Maximum price must be 100 000' })
+  @Min(MIN_PRICE, { message: `Minimum price must be ${MIN_PRICE}` })
+  @Max(MAX_PRICE, { message: `Maximum price must be ${MAX_PRICE}` })
   public price?: number;
 
   @IsOptional()

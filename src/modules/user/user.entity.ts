@@ -58,5 +58,4 @@ export class UserEntity extends defaultClasses.TimeStamps implements Host {
   }
 }
 
-
 export const UserModel = getModelForClass(UserEntity);
