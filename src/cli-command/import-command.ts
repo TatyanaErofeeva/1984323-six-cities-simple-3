@@ -14,8 +14,13 @@ import { Offer } from '../type/offer.js';
 import { LoggerInterface } from '../common/logger/logger.interface.js';
 import { DatabaseInterface } from '../common/database-client/database.interface.js';
 
-const DEFAULT_DB_PORT = 27017;
-const DEFAULT_USER_PASSWORD = '123456';
+const enum DefaultParams {
+  Port = 27017,
+  UserPassword = '123456'
+}
+
+// const DEFAULT_DB_PORT = 27017;
+// const DEFAULT_USER_PASSWORD = '123456';
 
 export default class ImportCommand implements CliCommandInterface {
   public readonly name = '--import';
@@ -38,7 +43,7 @@ export default class ImportCommand implements CliCommandInterface {
   private async saveOffer(offer: Offer) {
     const user = await this.userService.findOrCreate({
       ...offer.host,
-      password: DEFAULT_USER_PASSWORD
+      password: DefaultParams.UserPassword as string
     }, this.salt);
 
     await this.offerService.create({
@@ -59,7 +64,7 @@ export default class ImportCommand implements CliCommandInterface {
   }
 
   public async execute(filename: string, login: string, password: string, host: string, dbname: string, salt: string): Promise<void> {
-    const uri = getURI(login, password, host, DEFAULT_DB_PORT, dbname);
+    const uri = getURI(login, password, host, DefaultParams.Port, dbname);
     this.salt = salt;
 
     await this.databaseService.connect(uri);

@@ -1,16 +1,21 @@
 import { IsEmail, IsString, Length } from 'class-validator';
+import {MIN_HOSTNAME_LENGTH,
+  MAX_HOSTNAME_LENGTH,
+  MIN_PASSWORD_LENGTH,
+  MAX_PASSWORD_LENGTH
+} from '../../modules.constant';
 
 export default class CreateUserDto {
 
   @IsString({ message: 'HostName is required' })
-  @Length(1, 15, { message: 'HostName length must be between 1 and 15' })
+  @Length(MIN_HOSTNAME_LENGTH, MAX_HOSTNAME_LENGTH, { message: 'HostName length must be between 1 and 15' })
   public hostName!: string;
 
   @IsEmail({}, { message: 'Email must be vallid address' })
   public email!: string;
 
   @IsString({ message: 'Password is required' })
-  @Length(6, 12, { message: 'Password length must be between 1 and 15' })
+  @Length(MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH, { message: 'Password length must be between 1 and 15' })
   public password!: string;
 
   public isPro!: boolean;

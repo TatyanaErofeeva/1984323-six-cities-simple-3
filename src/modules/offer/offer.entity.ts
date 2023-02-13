@@ -3,6 +3,7 @@ import { CityType } from '../../type/city-type.enam.js';
 import { HouseType } from '../../type/house-type.enum.js';
 import { UserEntity } from '../user/user.entity.js';
 import { Coordinate } from '../../type/coordinates.type.js';
+import { DEFAULT_NUMBER } from '../modules.constant.js';
 
 const { prop, modelOptions } = typegoose;
 
@@ -44,7 +45,7 @@ export class OfferEntity extends defaultClasses.TimeStamps {
     @prop({ required: true, default: false })
     public isPremium!: boolean;
 
-    @prop({ required: true, default: 0 })
+    @prop({ required: true, default: DEFAULT_NUMBER })
     public rating!: number;
 
     @prop({
@@ -54,23 +55,23 @@ export class OfferEntity extends defaultClasses.TimeStamps {
     })
     public type!: HouseType;
 
-    @prop({ required: true, default: 0 })
+  @prop({ required: true, default: DEFAULT_NUMBER })
     public bedrooms!: number;
 
-    @prop({ required: true, default: 0 })
-    public maxAdults!: number;
+  @prop({ required: true, default: DEFAULT_NUMBER })
+  public maxAdults!: number;
 
-    @prop({ required: true, default: 0 })
-    public price!: number;
+  @prop({ required: true, default: DEFAULT_NUMBER })
+  public price!: number;
 
     @prop({ required: true, default: '' })
-    public goods!: string[];
+  public goods!: string[];
 
-    @prop({ required: true, default: 0 })
+  @prop({ required: true, default: DEFAULT_NUMBER })
     public commentsAmount!: number;
 
   @prop({ required: true })
-    public coordinates!: Coordinate;
+  public coordinates!: Coordinate;
 
     @prop({
       ref: UserEntity,

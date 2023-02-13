@@ -2,15 +2,28 @@ import { CityType } from '../../../type/city-type.enam.js';
 import { HouseType } from '../../../type/house-type.enum.js';
 import { Coordinate } from '../../../type/coordinates.type.js';
 import { ArrayMaxSize, ArrayMinSize, IsArray, IsBoolean, IsDateString, IsEnum, IsInt, IsOptional, IsString, Length, Max, Min, ValidateNested } from 'class-validator';
-
+import {
+  MIN_DESCRIPTION_LENGTH,
+  MAX_DESCRIPTION_LENGTH,
+  MIN_TITLE_LENGTH,
+  MAX_TITLE_LENGTH,
+  MIN_RATING,
+  MAX_RATING,
+  MIN_BEDROOMS,
+  MAX_BEDROOMS,
+  MIN_GUESTS,
+  MAX_GUESTS,
+  MIN_PRICE,
+  MAX_PRICE,
+  PICTURES_QUANTITY } from '../../modules.constant.js';
 export default class UpdateOfferDto {
 
   @IsOptional()
-  @Length(10, 100, { message: 'Title length must be between 10 and 100' })
+  @Length(MIN_TITLE_LENGTH, MAX_TITLE_LENGTH, { message: 'Title length must be between 10 and 100' })
   public title?: string;
 
   @IsOptional()
-  @Length(10, 100, { message: 'Description length must be between 10 and 100' })
+  @Length(MIN_DESCRIPTION_LENGTH, MAX_DESCRIPTION_LENGTH, { message: 'Description length must be between 20 and 1024' })
   public description?: string;
 
   @IsOptional()
@@ -26,8 +39,8 @@ export default class UpdateOfferDto {
 
   @IsOptional()
   @IsArray({ message: 'Images must be array' })
-  @ArrayMinSize(6, { message: 'Minimum must be 6 pictures' })
-  @ArrayMaxSize(6, { message: 'Maximum must be 6 pictures' })
+  @ArrayMinSize(PICTURES_QUANTITY, { message: 'Minimum must be 6 pictures' })
+  @ArrayMaxSize(PICTURES_QUANTITY, { message: 'Maximum must be 6 pictures' })
   public images?: string[];
 
   @IsOptional()
@@ -35,8 +48,8 @@ export default class UpdateOfferDto {
   public isPremium?: boolean;
 
   @IsOptional()
-  @Min(1, { message: 'Minimum rating must be 1' })
-  @Max(5, { message: 'Maximum rating must be 5' })
+  @Min(MIN_RATING, { message: 'Minimum rating must be 1' })
+  @Max(MAX_RATING, { message: 'Maximum rating must be 5' })
   public rating?: number;
 
   @IsOptional()
@@ -45,19 +58,19 @@ export default class UpdateOfferDto {
 
   @IsOptional()
   @IsInt({ message: 'Bedrooms must be integer type' })
-  @Min(1, { message: 'Minimum bedrooms must be 1' })
-  @Max(8, { message: 'Maximum bedrooms must be 8' })
+  @Min(MIN_BEDROOMS, { message: 'Minimum bedrooms must be 1' })
+  @Max(MAX_BEDROOMS, { message: 'Maximum bedrooms must be 8' })
   public bedrooms?: number;
 
   @IsOptional()
   @IsInt({ message: 'MaxAdults must be integer type' })
-  @Min(1, { message: 'Minimum guests must be 1' })
-  @Max(10, { message: 'Maximum guests must be 10' })
+  @Min(MIN_GUESTS, { message: 'Minimum guests must be 1' })
+  @Max(MAX_GUESTS, { message: 'Maximum guests must be 10' })
   public maxAdults?: number;
 
   @IsOptional()
-  @Min(100, { message: 'Minimum price must be 100' })
-  @Max(100000, { message: 'Maximum price must be 100 000' })
+  @Min(MIN_PRICE, { message: 'Minimum price must be 100' })
+  @Max(MAX_PRICE, { message: 'Maximum price must be 100 000' })
   public price?: number;
 
   @IsOptional()

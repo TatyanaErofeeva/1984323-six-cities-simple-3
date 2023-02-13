@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { inject, injectable } from 'inversify';
 import { Controller } from '../../common/controller/controller.js';
 import { Component } from '../../type/component.type.js';

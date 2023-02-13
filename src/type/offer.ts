@@ -29,5 +29,3 @@ export type Offer = {
     longitude: number
   }
 }
-
-export type Offers = Offer[];
